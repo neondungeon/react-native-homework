@@ -8,7 +8,7 @@ export default function ForgotPasswordScreen({ navigation }) {
   const handleReset = () => {
     auth.sendPasswordResetEmail(email.trim())
       .then(() => {
-        Alert.alert('Success', 'Password reset email sent');
+        Alert.alert('Success', 'E-mail de redefinição de senha enviado');
         navigation.goBack();
       })
       .catch(error => Alert.alert('Error', error.message));

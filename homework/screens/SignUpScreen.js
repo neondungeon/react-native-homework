@@ -19,13 +19,13 @@ export default function SignUpScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Username"
+        placeholder="Usuário"
         value={username}
         onChangeText={setUsername}
         style={styles.input}
       />
       <TextInput
-        placeholder="Email"
+        placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
         style={styles.input}
@@ -33,13 +33,13 @@ export default function SignUpScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        placeholder="Password"
+        placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
       />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      <Button title="Registrar" onPress={handleSignUp} />
     </View>
   );
 }

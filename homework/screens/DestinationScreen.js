@@ -9,8 +9,8 @@ export default function DestinationScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome! You are signed in.</Text>
-      <Button title="Sign Out" onPress={handleSignOut} />
+      <Text style={styles.text}>Bem-vindo, você está conectado.</Text>
+      <Button title="Sair" onPress={handleSignOut} />
     </View>
   );
 }

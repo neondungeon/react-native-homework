@@ -15,7 +15,7 @@ export default function SignInScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Email"
+        placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
         style={styles.input}
@@ -23,13 +23,13 @@ export default function SignInScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        placeholder="Password"
+        placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
       />
-      <Button title="Sign In" onPress={handleSignIn} />
+      <Button title="Entrar" onPress={handleSignIn} />
     </View>
   );
 }
