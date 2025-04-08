@@ -14,11 +14,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-        <Stack.Screen name="Destination" component={DestinationScreen} />
+        <Stack.Screen name="INÍCIO" component={HomeScreen} />
+        <Stack.Screen name="ENTRAR" component={SignInScreen} />
+        <Stack.Screen name="REGISTRAR" component={SignUpScreen} />
+        <Stack.Screen name="ESQUECI MINHA SENHA" component={ForgotPasswordScreen} />
+        <Stack.Screen name="APLICATIVO" component={DestinationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

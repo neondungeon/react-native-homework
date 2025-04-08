@@ -10,13 +10,13 @@ import 'firebase/auth';
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: 'api-key',
+  appId: 'app-id',
   authDomain: 'project-id.firebaseapp.com',
   databaseURL: 'https://project-id.firebaseio.com',
+  measurementId: 'G-measurement-id',
+  messagingSenderId: 'sender-id',
   projectId: 'project-id',
   storageBucket: 'project-id.appspot.com',
-  messagingSenderId: 'sender-id',
-  appId: 'app-id',
-  measurementId: 'G-measurement-id',
 };
 
 const app = initializeApp(firebaseConfig);
