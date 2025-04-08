@@ -1,8 +1,8 @@
 // screens/ForgotPasswordScreen.js
-import React, { useState } from 'react';
+import React, { useState } from               'react';
+import { auth } from                          '../firebase';
+import { sendPasswordResetEmail } from        'firebase/auth';
 import { View, TextInput, Button, Text } from 'react-native';
-import { auth } from '../firebase';
-import { sendPasswordResetEmail } from 'firebase/auth';
 
 export default function ForgotPasswordScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ export default function ForgotPasswordScreen({ navigation }) {
   const handleResetPassword = async () => {
     try {
       await sendPasswordResetEmail(auth, email);
-      setMessage('Password reset email sent. Check your inbox for further instructions.');
+      setMessage('E-mail de redefinição de senha enviado.');
       setError('');
     } catch (err) {
       setError(err.message);
@@ -23,7 +23,7 @@ export default function ForgotPasswordScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
       <TextInput
-        placeholder="Enter your email"
+        placeholder="Digite o seu Email"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
@@ -34,10 +34,10 @@ export default function ForgotPasswordScreen({ navigation }) {
       {error ? <Text style={{ color: 'red', marginBottom: 10 }}>{error}</Text> : null}
       {message ? <Text style={{ color: 'green', marginBottom: 10 }}>{message}</Text> : null}
 
-      <Button title="Send Reset Instructions" onPress={handleResetPassword} />
+      <Button title="Enviar E-mail de redefinição de senha" onPress={handleResetPassword} />
       
       <Button
-        title="Back to Login"
+        title="Voltar para Login"
         onPress={() => navigation.goBack()}
         style={{ marginTop: 15 }}
       />

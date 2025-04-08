@@ -1,14 +1,14 @@
 // screens/AuthScreen.js
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, TouchableOpacity } from 'react-native';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { View, TextInput, Button, Text, TouchableOpacity } from 'react-native';
 
 export default function AuthScreen({ navigation }) {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isSignUp, setIsSignUp] = useState(false);
   const [error, setError] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [password, setPassword] = useState('');
 
   const handleAuth = async () => {
     try {
@@ -32,7 +32,7 @@ export default function AuthScreen({ navigation }) {
         style={{ marginBottom: 10, padding: 10, borderWidth: 1 }}
       />
       <TextInput
-        placeholder="Password"
+        placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -40,7 +40,7 @@ export default function AuthScreen({ navigation }) {
       />
       {error ? <Text style={{ color: 'red', marginBottom: 10 }}>{error}</Text> : null}
       <Button
-        title={isSignUp ? "Sign Up" : "Sign In"}
+        title={isSignUp ? "Entrar" : "Registrar"}
         onPress={handleAuth}
       />
       <TouchableOpacity
@@ -48,14 +48,14 @@ export default function AuthScreen({ navigation }) {
         onPress={() => setIsSignUp(!isSignUp)}
       >
         <Text style={{ color: 'blue' }}>
-          {isSignUp ? "Switch to Sign In" : "Switch to Sign Up"}
+          {isSignUp ? "Mudar para Entrar" : "Mudar para Registrar"}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{ marginTop: 10 }}
         onPress={() => navigation.navigate('ForgotPassword')}
       >
-        <Text style={{ color: 'blue' }}>Forgot Password?</Text>
+        <Text style={{ color: 'blue' }}>Esqueceu sua senha?</Text>
       </TouchableOpacity>
     </View>
   );

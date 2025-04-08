@@ -1,15 +1,13 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { auth } from './firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer }  from '@react-navigation/native';
+import { onAuthStateChanged }   from 'firebase/auth';
 
-// Screens
 import AuthScreen from './screens/AuthScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import ProtectedScreen from './screens/ProtectedScreen';
-// import ResetPasswordScreen from './screens/ResetPasswordScreen';
 
 const Stack = createStackNavigator();
 
