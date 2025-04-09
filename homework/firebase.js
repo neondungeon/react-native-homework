@@ -9,14 +9,14 @@ import 'firebase/auth';
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: 'api-key',
-  appId: 'app-id',
-  authDomain: 'project-id.firebaseapp.com',
-  databaseURL: 'https://project-id.firebaseio.com',
+  apiKey: 'api-AIzaSyBvT74_-8vuzMUufH-vaVS-9LtHsB19ZNo',
+  appId: '459275156208',
+  authDomain: 'homework-ff869.firebaseapp.com',
+  databaseURL: 'https://homework-ff869.firebaseio.com',
   measurementId: 'G-measurement-id',
   messagingSenderId: 'sender-id',
-  projectId: 'project-id',
-  storageBucket: 'project-id.appspot.com',
+  projectId: 'homework-ff869',
+  storageBucket: 'homework-ff869.appspot.com',
 };
 
 const app = initializeApp(firebaseConfig);
