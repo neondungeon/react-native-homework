@@ -8,7 +8,7 @@ export default function SignInScreen({ navigation }) {
 
   const handleSignIn = () => {
     auth.signInWithEmailAndPassword(email.trim(), password)
-      .then(() => navigation.replace('Destination'))
+      .then(() => navigation.replace('APLICATIVO'))
       .catch(error => Alert.alert('Error', error.message));
   };
 

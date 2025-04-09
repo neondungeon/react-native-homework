@@ -4,7 +4,7 @@ import { auth } from '../firebase';
 
 export default function DestinationScreen({ navigation }) {
   const handleSignOut = () => {
-    auth.signOut().then(() => navigation.replace('Home'));
+    auth.signOut().then(() => navigation.replace('INÍCIO'));
   };
 
   return (

@@ -12,7 +12,7 @@ export default function SignUpScreen({ navigation }) {
       .then(({ user }) => {
         return user.updateProfile({ displayName: username });
       })
-      .then(() => navigation.replace('Destination'))
+      .then(() => navigation.replace('APLICATIVO'))
       .catch(error => Alert.alert('Error', error.message));
   };
 
