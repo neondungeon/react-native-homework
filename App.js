@@ -40,7 +40,7 @@ export default function App() {
             component={FormScreen}
           />
           <Tab.Screen
-            name="Lista de Alunos"
+            name="Lista de Funcionários"
             component={ListScreen}
           />
           <Tab.Screen
@@ -48,7 +48,7 @@ export default function App() {
             component={VisualizarAlunoScreen}
             options={{
               tabBarButton: () => null,
-              headerTitle: 'Detalhes do Aluno',
+              headerTitle: 'Detalhes do Funcionário',
             }}
           />
         </Tab.Navigator>
