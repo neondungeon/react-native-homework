@@ -31,7 +31,7 @@ O aplicativo permite que os usuários façam Login persistente e que realizem op
 
 ### Clonágem
 
-git clone https://github.com/neondungeon/react-native-homework
+git clone <https://github.com/neondungeon/react-native-homework>
 cd react-native-homework
 
 ### Instalação de Dependências

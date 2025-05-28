@@ -22,7 +22,7 @@ export default function Login({ navigation }) {
       })
       .catch(err => {
         console.error(err);
-        setError('E-mail ou senha inválidos.');
+        setError('Reabra o aplicativo.');
       });
   };
 
