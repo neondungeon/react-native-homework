@@ -6,14 +6,11 @@ import {
 import DateTimePicker from '@react-native-community/datetimepicker';
 import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
-import { saveStudent } from '../database/db';
+import { saveAluno } from '../database/db';
 
-// Validation utilities
 const validateEmail = (email) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(email);
-const formatPhone = (value) => value.replace(/\D/g, '').slice(0,11)
-  .replace(/(\d{2})(\d{5})(\d{4})|(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-const formatCPF = (value) => value.replace(/\D/g, '').slice(0,11)
-  .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+const formatPhone = (value) => value.replace(/\D/g, '').slice(0,11).replace(/(\d{2})(\d{5})(\d{4})|(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+const formatCPF = (value) => value.replace(/\D/g, '').slice(0,11).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 
 const validateCPF = (cpf) => {
   cpf = cpf.replace(/\D/g, '');
@@ -132,8 +129,9 @@ export default function StudentRegistration({ navigation }) {
       return Alert.alert('Dados insuficientes', 'Preencha todos os campos');
     }
     
-    saveStudent(studentData, () => {
+    saveAluno(studentData, () => {
       Alert.alert('Sucesso', 'Registro salvo!');
+      window.alert('Registro salvo com sucesso');
       setStudentData({
         firstName: '', lastName: '', idNumber: '', rg: '', birthDate: '',
         email: '', mobile: '', gender: '',
@@ -154,6 +152,29 @@ export default function StudentRegistration({ navigation }) {
 
   const genderOptions = ['Masculino', 'Feminino', 'Outro(a)'];
 
+  // Fill form with mock data
+  const fillOutFieldsWithMockData = () => {
+    setStudentData({
+      firstName: 'João',
+      lastName: 'Silva',
+      idNumber: '123.456.789-09',
+      rg: '12.345.678-9',
+      birthDate: '01/01/1990',
+      email: 'joao.silva@email.com',
+      mobile: '11987654321',
+      gender: 'Masculino',
+      postalCode: '01001000',
+      street: 'Praça da Sé',
+      number: '100',
+      additionalInfo: 'Apto 101',
+      district: 'Sé',
+      city: 'São Paulo',
+      state: 'SP',
+      photo: null
+    });
+    setAutoAddress(true);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>Registro de Funcionário</Text>
@@ -172,6 +193,10 @@ export default function StudentRegistration({ navigation }) {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Detalhes Pessoais</Text>
         
+        <TouchableOpacity style={styles.submitButton} onPress={fillOutFieldsWithMockData}>
+        <Text style={styles.submitText}>Preencher Dados</Text>
+        </TouchableOpacity>
+
         <TextInput 
           style={styles.inputField}
           placeholder="Nome *"
@@ -208,7 +233,7 @@ export default function StudentRegistration({ navigation }) {
             style={[styles.inputField, {flex: 1}]}
             placeholder="Data de Nascimento"
             value={studentData.birthDate}
-            editable={false}
+            editable={true}
           />
           <TouchableOpacity 
             style={styles.dateButton}
