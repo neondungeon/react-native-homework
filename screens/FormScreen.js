@@ -140,11 +140,47 @@ export default function StudentRegistration({ navigation }) {
     if (requiredFields.some(Boolean)) {
       return Alert.alert('Dados insuficientes', 'Preencha todos os campos');
     }
+
+    const alunoToSave = {
+      nome: studentData.firstName,
+      sobrenome: studentData.lastName,
+      cpf: studentData.idNumber,
+      rg: studentData.rg,
+      nascimento: studentData.birthDate,
+      email: studentData.email,
+      celular: studentData.mobile,
+      genero: studentData.gender,
+      cep: studentData.postalCode,
+      rua: studentData.street,
+      numero: studentData.number,
+      complemento: studentData.additionalInfo,
+      bairro: studentData.district,
+      cidade: studentData.city,
+      estado: studentData.state,
+      foto: studentData.photo
+    };
     
-    saveAluno(studentData, () => {
+    saveAluno(alunoToSave, () => {
       Alert.alert('Sucesso', 'Registro salvo!');
       window.alert('Registro salvo com sucesso');
-      setStudentData(studentData);
+      setStudentData({
+        firstName: '',
+        lastName: '',
+        idNumber: '',
+        rg: '',
+        birthDate: '',
+        email: '',
+        mobile: '',
+        gender: '',
+        postalCode: '',
+        street: '',
+        number: '',
+        additionalInfo: '',
+        district: '',
+        city: '',
+        state: '',
+        photo: null
+      });
       setAutoAddress(false);
     });
   };
