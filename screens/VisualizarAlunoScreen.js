@@ -6,7 +6,7 @@ export default function VisualizarAlunoScreen({ route }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Dados do Aluno</Text>
+      <Text style={styles.title}>Dados do Funcionário</Text>
 
       {aluno.foto && (
         <Image source={{ uri: aluno.foto }} style={styles.foto} />

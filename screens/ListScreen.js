@@ -25,8 +25,8 @@ export default function ListScreen({ navigation }) {
 
   const confirmarExclusao = (index) => {
     Alert.alert(
-      'Excluir Aluno',
-      'Tem certeza que deseja excluir este aluno?',
+      'Excluir Funcionário',
+      'Tem certeza que deseja excluir este funcionário?',
       [
         { text: 'Cancelar', style: 'cancel' },
         {
@@ -46,7 +46,7 @@ export default function ListScreen({ navigation }) {
     await AsyncStorage.setItem('@alunos', JSON.stringify(novaLista));
     
     if (Platform.OS === 'android') {
-      ToastAndroid.show(`Aluno ${alunoExcluido.nome} removido com sucesso.`, ToastAndroid.SHORT);
+      ToastAndroid.show(`Funcionário ${alunoExcluido.nome} removido com sucesso.`, ToastAndroid.SHORT);
     }
   };
 
@@ -78,12 +78,12 @@ export default function ListScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Alunos Cadastrados</Text>
+      <Text style={styles.title}>Funcionários Cadastrados</Text>
       <FlatList
         data={alunos}
         keyExtractor={(_, index) => index.toString()}
         renderItem={renderItem}
-        ListEmptyComponent={<Text style={styles.empty}>Nenhum aluno cadastrado.</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>Nenhum funcionário cadastrado.</Text>}
       />
     </View>
   );
