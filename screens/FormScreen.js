@@ -29,9 +29,21 @@ const validateCPF = (cpf) => {
 export default function StudentRegistration({ navigation }) {
   // Form state
   const [studentData, setStudentData] = useState({
-    firstName: '', lastName: '', idNumber: '', rg: '', birthDate: '',
-    email: '', mobile: '', gender: '',
-    postalCode: '', street: '', number: '', additionalInfo: '', district: '', city: '', state: '',
+    firstName: '',
+    lastName: '',
+    idNumber: '',
+    rg: '',
+    birthDate: '',
+    email: '',
+    mobile: '',
+    gender: '',
+    postalCode: '',
+    street: '',
+    number: '',
+    additionalInfo: '',
+    district: '',
+    city: '',
+    state: '',
     photo: null
   });
   
@@ -99,10 +111,10 @@ export default function StudentRegistration({ navigation }) {
       } else {
         setStudentData(prev => ({
           ...prev,
-          street: data.logradouro || '',
-          district: data.bairro || '',
-          city: data.localidade || '',
-          state: data.uf || '',
+          street: data.street || '',
+          district: data.district || '',
+          city: data.city || '',
+          state: data.state || '',
           postalCode
         }));
         setAutoAddress(true);
@@ -132,12 +144,7 @@ export default function StudentRegistration({ navigation }) {
     saveAluno(studentData, () => {
       Alert.alert('Sucesso', 'Registro salvo!');
       window.alert('Registro salvo com sucesso');
-      setStudentData({
-        firstName: '', lastName: '', idNumber: '', rg: '', birthDate: '',
-        email: '', mobile: '', gender: '',
-        postalCode: '', street: '', number: '', additionalInfo: '', district: '', city: '', state: '',
-        photo: null
-      });
+      setStudentData(studentData);
       setAutoAddress(false);
     });
   };
@@ -155,8 +162,8 @@ export default function StudentRegistration({ navigation }) {
   // Fill form with mock data
   const fillOutFieldsWithMockData = () => {
     setStudentData({
-      firstName: 'João',
-      lastName: 'Silva',
+      firstName: 'Seu',
+      lastName: 'Zé',
       idNumber: '123.456.789-09',
       rg: '12.345.678-9',
       birthDate: '01/01/1990',
@@ -194,7 +201,7 @@ export default function StudentRegistration({ navigation }) {
         <Text style={styles.sectionTitle}>Detalhes Pessoais</Text>
         
         <TouchableOpacity style={styles.submitButton} onPress={fillOutFieldsWithMockData}>
-        <Text style={styles.submitText}>Preencher Dados</Text>
+        <Text style={styles.submitText}>Preencher Dados (DEBUG)</Text>
         </TouchableOpacity>
 
         <TextInput 
